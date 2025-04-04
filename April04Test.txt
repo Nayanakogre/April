@@ -1,0 +1,735 @@
+1.Constructer Overloading is concept of overloading constructer(name of constructer always name of class) with same name and change in parameters, data type, length and its arrangements.
+e.g:
+package com.xworkz.test;
+
+public class Constroverloading {
+
+    String testMonth;
+    int testDate;
+
+
+    public Constroverloading()
+    {
+        System.out.println("Running in no arg constructer");
+    }
+    public Constroverloading(int testDate)
+    {
+        this.testDate=testDate;
+        System.out.println(this.testDate);
+        System.out.println("Running 1 arg constructer of type Integer");
+    }
+    public Constroverloading(String testMonth)
+    {
+        this.testMonth=testMonth;
+        System.out.println(this.testMonth);
+        System.out.println("Running 1 arg constructer of type String");
+    }
+    public Constroverloading(int testDate,String testMonth)
+    {
+        this.testDate=testDate;
+        this.testMonth=testMonth;
+        System.out.println(this.testDate);
+        System.out.println(this.testMonth);
+        System.out.println("Running 2 arg constructer of type Integer and String Respectively");
+    }
+    public Constroverloading(String testMonth,int testDate)
+    {
+        this.testMonth=testMonth;
+        this.testDate=testDate;
+        System.out.println(this.testMonth);
+        System.out.println(this.testDate);
+        System.out.println("Running 2 arg constructer of type  String and Integer Respectively");
+    }
+
+    public static void main(String[] args) {
+        Constroverloading constroverloading=new Constroverloading();
+        Constroverloading constroverloading1=new Constroverloading(4);
+        Constroverloading constroverloading2=new Constroverloading("April");
+        Constroverloading constroverloading3=new Constroverloading(4,"April");
+        Constroverloading constroverloading4=new Constroverloading("April",4);
+        
+
+    }
+
+}
+2.
+== will check address on LHS and RHS if its same for both  returns true.
+Whereas .equals check the values stored on LHS and RHS side if its true returns or else false .
+
+
+3.this keyword pointing the current object
+
+4.
+5 types of inheritance is supported in java
+  1.Single level Inheritance:
+			In this Inheritance type where a single child is inherited from the single parent.
+	
+E.g:
+	public class Fruit {
+    
+}
+public class Apple extends Fruit{
+
+}
+
+  2.Multi Level Inheritance:
+			In this inheritance type child of one parent class acts as parent of another class basically its forms a chain relationship.
+
+E.g:
+
+public class Fruit {
+    
+}
+public class Apple extends Fruit{
+
+}
+public class Apple extends AppleJuice{
+
+}
+
+  3.Hirerachical Inheritance:
+			In this inheritance type the a single parent as more than one child.
+E.g:
+public class Fruit {
+    
+}
+public class Apple extends Fruit{
+
+}
+public class Banana extends Fruit{
+}
+
+  4.Hybrid Inheritance:
+		Hybrid inheritance is combination of Single ,multi level, hirerachical  inheritance either 2 of its or 3.
+E.g:
+public class Fruit {
+    
+}
+public class Apple extends Fruit{
+
+}
+public class Banana extends Fruit{
+}
+public class BananaCake extends Banana{
+}
+
+  5.Multipe Inheritance:
+		Multiple inheritance is not supported by extend keyword due ambiguity leads a diamond problem and this is achevied using interface.
+public interface Father {
+}
+public interface Mother{
+}
+public class Son implements Father,Mother
+{
+}
+
+5)
+Compile time Polymorphism is achieved using method overloading and constructer overloading .
+Memory is allocated during Complilation.
+whereas
+Run time Polymorphism is achieved using methods overriding.
+Memory is allocated during run time.
+
+6) 
+Static variable uses static keyword.
+Belongs to a particular class.
+static can access only static variables
+
+whereas 
+
+Non static don't use static keyword
+belongs to object.
+non static can access both static and non static variables.
+
+7)
+If we add return type to a constructer it will act as method rather than as constructer. In java Constructer returns nothing so it has no return type.
+
+8)
+Rules for method overriding
+1.Only a method present in parent class can be overridden.
+2.@overide must be used
+3.Method signature should be same where ever method is overridden
+4.user can change the implementation of method whenever required.
+
+9)
+*final keyword is used whenever we want make a variable or methods as constant that should not be changed furthermore.
+*final keyword can be used for variables and methods.
+*final methods and variables canont be overrided or inherited.
+
+10)
+Has-a relationship is used in association
+E.g
+Adhar has address
+In adhar class address will be a variable of type Adress later a class is created for Address
+public class Adhar {
+    public Address adress;
+}
+
+public class Adress
+{
+}
+
+Is - a relationship is basically a inheritance
+E.g:
+Appple is a fruit.
+Apple is inherited from fruit.
+public class Fruit
+{
+}
+public class Apple extends Fruit
+{
+}
+
+11)
+Constructer chaining is achevied using inheritance.
+E.g:
+public class Ekart
+{
+public Ekart()
+{
+System.out.println("Running in Ekart class");
+}
+}
+
+public class FlipKart extends Ekart
+{
+public FlipKart()
+{
+System.out.println("Running in FlipKart class");
+}
+}
+
+12)
+Method is used provide functionalities.
+Method signature follows
+access specifier non-access Specifier return type name of methods(parametres) .
+Whereas
+Constructer is used for creating objects.
+Constructer signature as follows
+access-specifier name of class(Parameter)
+
+13)
+Super() is used whenever a child constructer wants to inherit the properties from its parent constructer.
+
+14)
+
+15)
+implements comes under interfaces .
+implement support multiple inheritance.
+implements can inherit more than one class at once
+E.g
+public class Son implements Father,Mother
+{
+}
+Extends comes under inheritance
+extends is used by child to get properties from its parent
+extends can extend only one class at a time.
+E.g:
+public class School
+{
+}
+public class Teacher extends Teacher
+{
+}
+public class Student extends Teacher
+{
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+1)
+package com.xworkz.test;
+
+public class Palindrome {
+    public static void main(String[] args) {
+        String name = "abcba";
+        int left = 0;
+        int right = name.length() - 1;
+        boolean isPalindrome = true;
+
+        while (left < right) {
+            if (name.charAt(left) != name.charAt(right)) {
+                isPalindrome = false;
+                break;
+            }
+            left++;
+            right--;
+        }
+
+        if (isPalindrome) {
+            System.out.println("Given String is a palindrome");
+        } else {
+            System.out.println("It's not a palindrome");
+        }
+    }
+}
+
+2)
+package com.xworkz.test;
+
+public class Student {
+    String name;
+    int rollNumber;
+    int marks;
+
+    public Student(String name,
+    int rollNumber,
+    int marks)
+    {
+        this.name=name;
+        this.rollNumber=rollNumber;
+        this.marks=marks;
+    }
+    public void studentDetails()
+    {
+        System.out.println(name);
+        System.out.println(rollNumber);
+        System.out.println(marks);
+    }
+
+    public static void main(String[] args) {
+        Student student=new Student("Nandan",101,90);
+        student.studentDetails();
+    }
+
+}
+
+3)
+package com.xworkz.test;
+
+public class Arthemetic {
+
+
+    public void add(int num1,int num2)
+    {
+        int add=num1+num2;
+        System.out.println("Addition of 2 int values :"+add);
+    }
+    public void add(double num1,double num2,double num3)
+    {
+        double add=num1+num2+num3;
+        System.out.println("Addition of 3 double values :"+add);
+    }
+
+    public static void main(String[] args) {
+        Arthemetic arthemetic=new Arthemetic();
+        arthemetic.add(20,30);
+        arthemetic.add(22.1,87765.900,5432.9876);
+    }
+}
+
+4)
+package com.xworkz.test;
+
+public class Vehicle {
+    public void vechicleDetails()
+    {
+        System.out.println("Running in Vechicle class");
+    }
+}
+
+package com.xworkz.test;
+
+public class Car extends Vehicle {
+    @Override
+    public void vechicleDetails()
+    {
+        System.out.println("Running in Car class");
+    }
+
+}
+package com.xworkz.test;
+
+public class VehicleRunner {
+    public static void main(String[] args) {
+        Car car=new Car();
+        Vehicle vehicle=new Vehicle();
+        car.vechicleDetails();
+        vehicle.vechicleDetails();
+    }
+}
+
+
+5)
+package com.xworkz.test;
+
+public class Vehicle {
+     int vechicleNo;
+     int modelNo;
+     String owner;
+
+    public Vehicle(int vechicleNo, int modelNo)
+    {
+        this.vechicleNo=vechicleNo;
+        this.modelNo=modelNo;
+        System.out.println(vechicleNo);
+        System.out.println(modelNo);
+    }
+    public Vehicle(int vechicleNo, int modelNo,String owner)
+    {
+        this(vechicleNo,modelNo);
+        this.owner=owner;
+        System.out.println(vechicleNo);
+        System.out.println(modelNo);
+        System.out.println(owner);
+    }
+
+    public void vechicleDetails()
+    {
+        System.out.println("Running in Vechicle class");
+    }
+}
+
+package com.xworkz.test;
+
+public class Car extends Vehicle {
+    String carName;
+
+
+    public Car(int vechicleNo, int modelNo, String owner,String carName ) {
+        super(vechicleNo, modelNo, owner);
+        this.carName=carName;
+        System.out.println(vechicleNo);
+        System.out.println(modelNo);
+        System.out.println(owner);
+        System.out.println(carName);
+    }
+
+    @Override
+    public void vechicleDetails()
+    {
+        super.vechicleDetails();
+        System.out.println("Running in Car class");
+    }
+
+}
+
+package com.xworkz.test;
+
+public class VehicleRunner {
+    public static void main(String[] args) {
+        Car car=new Car(121,202,"Nayana","BMW");
+        System.out.println("--------------------------------");
+        Vehicle vehicle=new Vehicle(121,202,"Nayana");
+        System.out.println("--------------------------------");
+        Vehicle vehicle1=new Vehicle(121,2);
+        System.out.println("--------------------------------");
+        car.vechicleDetails();
+        System.out.println("--------------------------------");
+        vehicle.vechicleDetails();
+    }
+}
+
+6)
+7)package com.xworkz.test;
+
+public class Reactangle {
+    double length;
+    double breadth;
+    public Reactangle(double length, double breadth) {
+        this.length = length;
+        this.breadth = breadth;
+    }
+        public void area()
+        {
+           double area=length*breadth;
+            System.out.println("Area :"+area);
+
+        }
+        public void perimeter()
+        {
+            double perimeter=2*(length+breadth);
+            System.out.println("Perimeter :"+perimeter);
+        }
+
+    public static void main(String[] args) {
+        Reactangle reactAngle=new Reactangle(12.3,56);
+        reactAngle.area();
+        reactAngle.perimeter();
+    }
+    }
+
+8)
+package com.xworkz.test;
+
+public class BankAccount {
+
+
+
+        long accountNumber = 8787676565354l;
+        String holderName = "Megha";
+        double balance = 0;
+        public void deposit ()
+        {
+            System.out.println("Running in deposit method");
+        }
+        public void withdraw ()
+        {
+            if (!(balance >= 0)) {
+                System.out.println("Withdrwal does not allow negetive number");
+
+            }
+            System.out.println("Running in withdraw method");
+        }
+        public void displayDetails ()
+        {
+            System.out.println("Running in method display details");
+        }
+
+    public static void main(String[] args) {
+        BankAccount bankAccount=new BankAccount();
+        bankAccount.deposit();
+        bankAccount.withdraw();
+        bankAccount.displayDetails();
+
+    }
+    }
+
+9)
+package com.xworkz.test;
+
+public class Person {
+    String name;
+    int age;
+    public Person(String name,int age)
+    {
+        this.name=name;
+        this.age=age;
+    }
+    public void personDetails()
+    {
+        System.out.println(name);
+        System.out.println(age);
+    }
+}
+package com.xworkz.test;
+
+public class Employee extends Person{
+    double salary;
+    public Employee(String name, int age,double salary)
+    {
+        super(name, age);
+        this.salary=salary;
+    }
+    @Override
+    public void personDetails()
+    {
+        System.out.println(name);
+        System.out.println(age);
+        System.out.println(salary);
+    }
+}
+package com.xworkz.test;
+
+import com.xworkz.interfaceex.Earth;
+
+public class PersonRunner {
+    public static void main(String[] args) {
+        Employee employee=new Employee("Nayana",22,100000);
+        employee.personDetails();
+    }
+}
+
+10)
+package com.xworkz.test;
+
+public class Book {
+    String title;
+    String author;
+    int price;
+
+    public Book(String title,String author)
+    {
+      this.title=title;
+      this.author=author;
+        System.out.println(title);
+        System.out.println(author);
+    }
+    public Book(String title,String author,int price)
+    {
+        this(title,author);
+        this.price=price;
+        System.out.println(title);
+        System.out.println(author);
+        System.out.println(price);
+    }
+
+    public static void main(String[] args) {
+        Book book=new Book("Karvalo","K P Tejaswi");
+        Book book1=new Book("Jugari Cross","Kp Tejaswi",200);
+    }
+
+
+}
+
+11)
+package com.xworkz.test;
+
+public class Calucalator {
+    public void calculate(int num1,int num2)
+    {
+        int addition=num1+num2;
+        System.out.println(addition);
+    }
+    public void calculate(float num1,float num2)
+    {
+        float substraction=num1-num2;
+        System.out.println(substraction);
+    }
+    public void calculate(double num1,double num2)
+    {
+        double multiplication=num1*num2;
+        System.out.println(multiplication);
+    }
+
+    public static void main(String[] args) {
+        Calucalator calucalator=new Calucalator();
+        calucalator.calculate(23,56);
+        calucalator.calculate(12.89f,89.6f);
+        calucalator.calculate(75.78664,764.90);
+    }
+
+}
+12)
+package com.xworkz.test;
+
+public class Animal {
+    public void makeSound()
+    {
+        System.out.println("Animal Make sound");
+    }
+}
+package com.xworkz.test;
+
+public class Dog extends Animal{
+
+    @Override
+    public void makeSound()
+    {
+        System.out.println("Dog  Make sound");
+    }
+}
+package com.xworkz.test;
+
+public class AnimalRunner {
+    public static void main(String[] args) {
+        Animal animal=new Animal();
+        Dog dog=new Dog();
+        animal.makeSound();
+        dog.makeSound();
+    }
+}
+13)
+package com.xworkz.test;
+
+public class Triangle {
+    double sideA;
+    double sideB;
+    double sideC;
+
+    public Triangle(double sideA, double sideB, double sideC)
+    {
+        this.sideA=sideA;
+        this.sideB=sideB;
+        this.sideC=sideC;
+    }
+    public void checkValidTriangle()
+    {
+        if(sideA>0 && sideB>0 && sideC>0)
+        {
+            System.out.println("Valid Triangle");
+        }
+    }
+    public void calculateArea()
+    {
+        double area=sideA*sideB*sideC;
+        System.out.println(area);
+    }
+
+    public static void main(String[] args) {
+        Triangle triangle=new Triangle(12,12,12);
+        triangle.checkValidTriangle();
+        triangle.calculateArea();
+    }
+}
+14)
+package com.xworkz.test;
+
+public class Circle {
+    double pie=3.14;
+    double radius;
+    public Circle(double radius)
+    {
+        this.radius=radius;
+    }
+    public void area()
+    {
+        double area=pie*radius*radius;
+        System.out.println(area);
+    }
+
+    public static void main(String[] args) {
+        Circle circle=new Circle(2);
+        circle.area();
+        Circle circle1=new Circle(3);
+        circle1.area();
+        Circle circle2=new Circle(5);
+        circle2.area();
+        Circle circle3=new Circle(19);
+        circle3.area();
+
+    }
+}
+15)
+package com.xworkz.test;
+
+public class Shape {
+    public void calculateArea()
+    {
+        System.out.println("Running in shape class");
+    }
+}
+package com.xworkz.test;
+
+public class Reactangle1 extends Shape {
+    int length=12;
+    int breadth=12;
+    int height=12;
+    @Override
+    public void calculateArea()
+    {
+        System.out.println("Running in Reactangle1  class");
+        int area=length*breadth*height;
+        System.out.println(area);
+    }
+}
+package com.xworkz.test;
+
+public class Circle1 extends Shape{
+    double pie=3.14;
+    double radius=2.2;
+    @Override
+    public void calculateArea()
+    {
+        System.out.println("Running in Circle1 class");
+        double area=pie*radius*radius;
+        System.out.println(area);
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
